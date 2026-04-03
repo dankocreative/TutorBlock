@@ -1,0 +1,144 @@
+/* =====================================================
+   TutorBlock — Global Shared Styles
+   All blocks share these base styles for course cards,
+   helpers, and global CSS custom properties.
+   ===================================================== */
+
+/* Global CSS reset for TutorBlock elements */
+.tutorblock-course-card,
+.tutorblock-course-preview,
+.tutorblock-enrollment-cta,
+.tutorblock-instructor-profile,
+.tutorblock-course-stats,
+.tutorblock-category-course-grid {
+	box-sizing: border-box;
+}
+
+.tutorblock-course-card *,
+.tutorblock-course-preview *,
+.tutorblock-enrollment-cta *,
+.tutorblock-instructor-profile *,
+.tutorblock-course-stats * {
+	box-sizing: inherit;
+}
+
+/* Headings / labels in block headers */
+.tutorblock-grid-header h2,
+.tutorblock-carousel-heading {
+	margin-top: 0;
+}
+
+/* No-courses placeholder */
+.tutorblock-no-courses {
+	text-align: center;
+	padding: 2.5rem 1.5rem;
+	color: #6b7280;
+	font-size: 1rem;
+	background: #f9fafb;
+	border: 1px dashed #d1d5db;
+	border-radius: 8px;
+}
+
+/* Loading placeholder (Server Side Render) */
+.tutorblock-loading {
+	text-align: center;
+	padding: 2rem;
+	color: #9ca3af;
+	font-style: italic;
+}
+
+/* Responsive image defaults */
+.tutorblock-card-thumb img,
+.tutorblock-preview-image img,
+.tutorblock-cta-image img,
+.tutorblock-instructor-avatar {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Wide & full-width alignment helpers */
+.wp-block-tutorblock-course-carousel.alignwide,
+.wp-block-tutorblock-course-grid.alignwide,
+.wp-block-tutorblock-category-course-grid.alignwide,
+.wp-block-tutorblock-enrollment-cta.alignwide {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Counter animation utility */
+.tutorblock-stat-number.is-counting {
+	display: inline-block;
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.tutorblock-carousel-track,
+	.tutorblock-enroll-btn,
+	.tutorblock-cta-enroll-btn {
+		transition: none !important;
+	}
+}
+
+/* ── Hero Banner & Video Preview alignment helpers ───────────────────────── */
+.wp-block-tutorblock-hero-banner.alignwide,
+.wp-block-tutorblock-video-preview.alignwide {
+max-width: 1200px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.wp-block-tutorblock-hero-banner.alignfull,
+.wp-block-tutorblock-video-preview.alignfull {
+max-width: 100%;
+width: 100%;
+}
+
+/* Shared video modal styles (used by both hero-banner and video-preview) */
+.tutorblock-video-modal {
+display: none;
+position: fixed;
+inset: 0;
+z-index: 99999;
+background: rgba(0, 0, 0, 0.92);
+align-items: center;
+justify-content: center;
+}
+
+.tutorblock-video-modal.is-open {
+display: flex;
+}
+
+.tutorblock-video-modal__inner {
+position: relative;
+width: 90vw;
+max-width: 960px;
+}
+
+.tutorblock-video-modal__close {
+position: absolute;
+top: -3rem;
+right: 0;
+background: none;
+border: none;
+color: #fff;
+font-size: 2rem;
+cursor: pointer;
+line-height: 1;
+padding: 0.25rem 0.5rem;
+opacity: 0.8;
+transition: opacity 0.15s;
+}
+
+.tutorblock-video-modal__close:hover {
+opacity: 1;
+}
+
+.tutorblock-video-modal__embed iframe,
+.tutorblock-video-modal__embed video {
+width: 100%;
+aspect-ratio: 16 / 9;
+border: 0;
+display: block;
+border-radius: 4px;
+}

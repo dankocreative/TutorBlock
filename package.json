@@ -1,0 +1,31 @@
+{
+  "name": "tutorblock",
+  "version": "1.0.0",
+  "description": "Powerful Gutenberg blocks for TutorLMS",
+  "author": "Kevin Danko",
+  "license": "GPL-2.0-or-later",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "format": "wp-scripts format",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^14.0.0",
+    "@wordpress/blocks": "^13.0.0",
+    "@wordpress/components": "^28.0.0",
+    "@wordpress/element": "^6.0.0",
+    "@wordpress/i18n": "^5.0.0",
+    "@wordpress/icons": "^10.0.0",
+    "@wordpress/server-side-render": "^5.0.0"
+  },
+  "wp-scripts": {
+    "webpack-config": "webpack.config.js"
+  }
+}

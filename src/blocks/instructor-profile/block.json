@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/instructor-profile",
+  "version": "1.0.0",
+  "title": "Instructor Profile",
+  "category": "tutorblock",
+  "icon": "admin-users",
+  "description": "Showcase a TutorLMS instructor with their bio, expertise, statistics, and a list of their published courses.",
+  "keywords": [
+    "tutor",
+    "lms",
+    "instructor",
+    "teacher",
+    "profile",
+    "bio"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "instructorId": {
+      "type": "integer",
+      "default": 0
+    },
+    "layout": {
+      "type": "string",
+      "default": "card"
+    },
+    "showBio": {
+      "type": "boolean",
+      "default": true
+    },
+    "showStats": {
+      "type": "boolean",
+      "default": true
+    },
+    "showSocialLinks": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCourses": {
+      "type": "boolean",
+      "default": true
+    },
+    "coursesToShow": {
+      "type": "integer",
+      "default": 3
+    },
+    "showRatings": {
+      "type": "boolean",
+      "default": true
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#2563eb"
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#f59e0b"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": false
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/instructor-profile/index.js",
+  "editorStyle": "file:../../../build/blocks/instructor-profile/index.css",
+  "style": "file:../../../build/blocks/instructor-profile/style-index.css"
+}

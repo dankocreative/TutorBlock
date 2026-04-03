@@ -1,0 +1,92 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/course-preview",
+  "version": "1.0.0",
+  "title": "Course Preview Card",
+  "category": "tutorblock",
+  "icon": "welcome-learn-more",
+  "description": "Highlight a single TutorLMS course with a rich preview card showing details, stats, instructor, and an enrollment CTA.",
+  "keywords": [
+    "tutor",
+    "lms",
+    "course",
+    "preview",
+    "highlight",
+    "featured"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "courseId": {
+      "type": "integer",
+      "default": 0
+    },
+    "layout": {
+      "type": "string",
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical", "hero", "cinematic"]
+    },
+    "showDescription": {
+      "type": "boolean",
+      "default": true
+    },
+    "showInstructor": {
+      "type": "boolean",
+      "default": true
+    },
+    "showStats": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRating": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRequirements": {
+      "type": "boolean",
+      "default": false
+    },
+    "showCurriculum": {
+      "type": "boolean",
+      "default": false
+    },
+    "showEnrollButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "enrollButtonText": {
+      "type": "string",
+      "default": "Enroll Now"
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#2563eb"
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#f59e0b"
+    },
+    "imagePosition": {
+      "type": "string",
+      "default": "left"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": false
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/course-preview/index.js",
+  "editorStyle": "file:../../../build/blocks/course-preview/index.css",
+  "style": "file:../../../build/blocks/course-preview/style-index.css"
+}

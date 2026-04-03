@@ -1,0 +1,175 @@
+/* stylelint-disable no-descending-specificity */
+
+/* =====================================================
+   TutorBlock — Course Stats — Frontend Styles
+   ===================================================== */
+
+.tutorblock-course-stats {
+	width: 100%;
+
+	/* Horizontal layout */
+	&.is-layout-horizontal {
+
+		.tutorblock-stats-inner {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 0;
+			flex-wrap: wrap;
+
+			.tutorblock-stat-item:not(:last-child) {
+				border-right: 1px solid #e5e7eb;
+				padding-right: 2.5rem;
+				margin-right: 2.5rem;
+
+				@media (max-width: 640px) {
+					border-right: none;
+					padding-right: 0;
+					margin-right: 0;
+					border-bottom: 1px solid #e5e7eb;
+					padding-bottom: 1.5rem;
+					margin-bottom: 1.5rem;
+				}
+			}
+		}
+	}
+
+	/* Grid layout */
+	&.is-layout-grid {
+
+		.tutorblock-stats-inner {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+
+			@media (max-width: 480px) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+
+	/* Vertical layout */
+	&.is-layout-vertical {
+
+		.tutorblock-stats-inner {
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem;
+		}
+
+		.tutorblock-stat-item {
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 1.25rem;
+		}
+
+		.tutorblock-stat-icon {
+			font-size: 2rem;
+		}
+	}
+
+	.tutorblock-stats-inner {
+
+		/* Default layout is horizontal flex */
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+
+	/* Individual stat */
+	.tutorblock-stat-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		min-width: 100px;
+
+		&.has-icon {
+
+			.tutorblock-stat-icon {
+				font-size: 2.25rem;
+				margin-bottom: 0.5rem;
+				line-height: 1;
+			}
+		}
+	}
+
+	.tutorblock-stat-number {
+		font-size: 2.75rem;
+		font-weight: 900;
+		line-height: 1;
+		color: var(--tutorblock-primary, #2563eb);
+		font-variant-numeric: tabular-nums;
+		letter-spacing: -1px;
+	}
+
+	.tutorblock-stat-label {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: #6b7280;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin-top: 0.35rem;
+	}
+
+	/* Style: Filled */
+	&.is-style-filled {
+
+		.tutorblock-stat-item {
+			background: linear-gradient(135deg, var(--tutorblock-primary, #2563eb), var(--tutorblock-secondary, #7c3aed));
+			border-radius: 16px;
+			padding: 2rem 1.5rem;
+			color: #fff;
+
+			.tutorblock-stat-number {
+				color: #fff;
+			}
+
+			.tutorblock-stat-label {
+				color: rgba(255, 255, 255, 0.8);
+			}
+		}
+	}
+
+	/* Style: Gradient */
+	&.is-style-gradient {
+
+		.tutorblock-stat-number {
+			background: linear-gradient(135deg, var(--tutorblock-primary, #2563eb), var(--tutorblock-secondary, #7c3aed));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+	}
+
+	/* Style: Minimal */
+	&.is-style-minimal {
+
+		.tutorblock-stat-item {
+			padding: 1rem 0;
+
+			.tutorblock-stat-number {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	/* Style: Default (outlined) */
+	&.is-style-default {
+
+		.tutorblock-stat-item {
+			background: #fff;
+			border: 1px solid #e5e7eb;
+			border-radius: 12px;
+			padding: 1.75rem 1.5rem;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+			transition: box-shadow 0.2s;
+
+			&:hover {
+				box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+			}
+		}
+	}
+}

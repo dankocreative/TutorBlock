@@ -1,0 +1,107 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/category-course-grid",
+  "version": "1.0.0",
+  "title": "Category Course Grid",
+  "category": "tutorblock",
+  "icon": "category",
+  "description": "Display courses organized by their categories, with each category section showing a configurable number of courses.",
+  "keywords": [
+    "tutor",
+    "lms",
+    "course",
+    "category",
+    "browse",
+    "taxonomy"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "categories": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesPerCategory": {
+      "type": "integer",
+      "default": 4
+    },
+    "columns": {
+      "type": "integer",
+      "default": 4
+    },
+    "columnsTablet": {
+      "type": "integer",
+      "default": 2
+    },
+    "showCategoryTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCategoryDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "showCategoryCourseCount": {
+      "type": "boolean",
+      "default": true
+    },
+    "showViewAllLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "viewAllText": {
+      "type": "string",
+      "default": "View All Courses"
+    },
+    "showRating": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPrice": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEnrollButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "date"
+    },
+    "order": {
+      "type": "string",
+      "default": "DESC"
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#2563eb"
+    },
+    "cardBorderRadius": {
+      "type": "integer",
+      "default": 8
+    },
+    "sectionSpacing": {
+      "type": "integer",
+      "default": 48
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": false
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/category-course-grid/index.js",
+  "editorStyle": "file:../../../build/blocks/category-course-grid/index.css",
+  "style": "file:../../../build/blocks/category-course-grid/style-index.css"
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/course-carousel",
+  "version": "1.0.0",
+  "title": "Course Carousel",
+  "category": "tutorblock",
+  "icon": "slides",
+  "description": "Display a beautiful carousel/slider of TutorLMS courses with autoplay, navigation arrows, and dot indicators.",
+  "keywords": [
+    "tutor",
+    "lms",
+    "course",
+    "carousel",
+    "slider"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "numberOfCourses": {
+      "type": "integer",
+      "default": 9
+    },
+    "category": {
+      "type": "string",
+      "default": ""
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "date"
+    },
+    "order": {
+      "type": "string",
+      "default": "DESC"
+    },
+    "slidesToShow": {
+      "type": "integer",
+      "default": 3
+    },
+    "slidesToShowTablet": {
+      "type": "integer",
+      "default": 2
+    },
+    "slidesToShowMobile": {
+      "type": "integer",
+      "default": 1
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoplaySpeed": {
+      "type": "integer",
+      "default": 3000
+    },
+    "showArrows": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDots": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRating": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPrice": {
+      "type": "boolean",
+      "default": true
+    },
+    "showInstructor": {
+      "type": "boolean",
+      "default": true
+    },
+    "showEnrollButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#2563eb"
+    },
+    "cardBorderRadius": {
+      "type": "integer",
+      "default": 8
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "subheading": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": false
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/course-carousel/index.js",
+  "editorStyle": "file:../../../build/blocks/course-carousel/index.css",
+  "style": "file:../../../build/blocks/course-carousel/style-index.css"
+}

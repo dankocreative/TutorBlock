@@ -1,0 +1,26 @@
+/* =====================================================
+   TutorBlock — Editor Styles
+   Shared styles for the Gutenberg editor.
+   ===================================================== */
+
+/* Editor badge shared base */
+.tutorblock-editor-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.3rem 0.75rem;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
+/* Ensure server-side render placeholder doesn't overflow */
+.wp-block-tutorblock-course-carousel,
+.wp-block-tutorblock-course-grid,
+.wp-block-tutorblock-category-course-grid,
+.wp-block-tutorblock-enrollment-cta,
+.wp-block-tutorblock-instructor-profile,
+.wp-block-tutorblock-course-preview,
+.wp-block-tutorblock-course-stats {
+	overflow: hidden;
+}

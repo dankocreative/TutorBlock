@@ -1,0 +1,316 @@
+/* stylelint-disable no-descending-specificity */
+
+/* =====================================================
+   TutorBlock — Course Carousel — Frontend Styles
+   ===================================================== */
+
+.tutorblock-course-carousel {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	.tutorblock-carousel-header {
+		margin-bottom: 1.5rem;
+		text-align: center;
+
+		.tutorblock-carousel-heading {
+			font-size: 2rem;
+			font-weight: 700;
+			margin: 0 0 0.5rem;
+			line-height: 1.2;
+		}
+
+		.tutorblock-carousel-subheading {
+			font-size: 1.1rem;
+			color: #666;
+			margin: 0;
+		}
+	}
+
+	// Viewport / track wrapper
+	.tutorblock-carousel-viewport {
+		overflow: hidden;
+		position: relative;
+	}
+
+	.tutorblock-carousel-track {
+		display: flex;
+		transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+		will-change: transform;
+		align-items: stretch;
+	}
+
+	.tutorblock-carousel-slide {
+		flex: 0 0 auto;
+		padding: 0 0.75rem;
+		box-sizing: border-box;
+	}
+
+	/* Course Card */
+	.tutorblock-course-card {
+		background: #fff;
+		border: 1px solid #e5e7eb;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		overflow: hidden;
+		transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+		&:hover {
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+			transform: translateY(-3px);
+		}
+
+		.tutorblock-card-thumb {
+			position: relative;
+			overflow: hidden;
+			aspect-ratio: 16 / 9;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.3s ease;
+			}
+
+			&:hover img {
+				transform: scale(1.04);
+			}
+
+			.tutorblock-card-badge {
+				position: absolute;
+				top: 0.6rem;
+				left: 0.6rem;
+				padding: 0.2rem 0.6rem;
+				border-radius: 4px;
+				font-size: 0.75rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				color: #fff;
+
+				&.is-free {
+					background: #10b981;
+				}
+
+				&.is-paid {
+					background: #f59e0b;
+				}
+			}
+		}
+
+		.tutorblock-card-body {
+			padding: 1.1rem 1.25rem;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.tutorblock-card-category {
+			font-size: 0.75rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: var(--tutorblock-primary, #2563eb);
+		}
+
+		.tutorblock-card-title {
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: 1.35;
+			color: #111827;
+			margin: 0;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+
+			a {
+				color: inherit;
+				text-decoration: none;
+
+				&:hover {
+					color: var(--tutorblock-primary, #2563eb);
+				}
+			}
+		}
+
+		.tutorblock-card-instructor {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-size: 0.85rem;
+			color: #6b7280;
+
+			img {
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+		}
+
+		.tutorblock-card-rating {
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+			font-size: 0.85rem;
+
+			.tutorblock-stars {
+				color: #f59e0b;
+				letter-spacing: 1px;
+			}
+
+			.tutorblock-rating-value {
+				font-weight: 600;
+				color: #374151;
+			}
+
+			.tutorblock-rating-count {
+				color: #9ca3af;
+			}
+		}
+
+		.tutorblock-card-meta {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			font-size: 0.8rem;
+			color: #6b7280;
+			flex-wrap: wrap;
+
+			.tutorblock-meta-item {
+				display: flex;
+				align-items: center;
+				gap: 0.3rem;
+			}
+		}
+
+		.tutorblock-card-footer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0.75rem 1.25rem 1rem;
+			border-top: 1px solid #f3f4f6;
+			margin-top: auto;
+			gap: 0.75rem;
+			flex-wrap: wrap;
+		}
+
+		.tutorblock-card-price {
+
+			.tutorblock-price-free {
+				font-size: 1rem;
+				font-weight: 700;
+				color: #10b981;
+			}
+
+			.tutorblock-price-amount {
+				font-size: 1.1rem;
+				font-weight: 800;
+				color: #111827;
+			}
+
+			.tutorblock-price-original {
+				font-size: 0.85rem;
+				color: #9ca3af;
+				text-decoration: line-through;
+				margin-left: 0.35rem;
+			}
+		}
+
+		.tutorblock-enroll-btn {
+			display: inline-block;
+			padding: 0.5rem 1.1rem;
+			border-radius: 6px;
+			font-size: 0.875rem;
+			font-weight: 600;
+			text-decoration: none;
+			background: var(--tutorblock-primary, #2563eb);
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			transition: opacity 0.2s, transform 0.1s;
+			white-space: nowrap;
+
+			&:hover {
+				opacity: 0.88;
+				transform: scale(1.03);
+				color: #fff;
+			}
+		}
+	}
+
+	/* Navigation arrows */
+	.tutorblock-carousel-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(255, 255, 255, 0.95);
+		border: 1px solid #e5e7eb;
+		border-radius: 50%;
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 10;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		transition: background 0.2s, box-shadow 0.2s;
+		padding: 0;
+		font-size: 1.2rem;
+		color: #374151;
+
+		&:hover {
+			background: var(--tutorblock-primary, #2563eb);
+			color: #fff;
+			border-color: var(--tutorblock-primary, #2563eb);
+			box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+		}
+
+		&.tutorblock-arrow-prev {
+			left: -20px;
+		}
+
+		&.tutorblock-arrow-next {
+			right: -20px;
+		}
+
+		&:disabled,
+		&.is-disabled {
+			opacity: 0.35;
+			cursor: not-allowed;
+			pointer-events: none;
+		}
+	}
+
+	/* Dot indicators */
+	.tutorblock-carousel-dots {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 1.25rem;
+		padding: 0;
+		list-style: none;
+
+		.tutorblock-dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: #d1d5db;
+			border: none;
+			cursor: pointer;
+			padding: 0;
+			transition: background 0.2s, transform 0.2s;
+
+			&.is-active,
+			&:hover {
+				background: var(--tutorblock-primary, #2563eb);
+				transform: scale(1.3);
+			}
+		}
+	}
+}

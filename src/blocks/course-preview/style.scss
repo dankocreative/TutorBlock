@@ -1,0 +1,463 @@
+/* stylelint-disable no-descending-specificity */
+
+/* =====================================================
+   TutorBlock — Course Preview — Frontend Styles
+   ===================================================== */
+
+.tutorblock-course-preview {
+	overflow: hidden;
+
+	/* Horizontal layout */
+	&.is-layout-horizontal {
+		display: flex;
+		gap: 0;
+		border: 1px solid #e5e7eb;
+		border-radius: 12px;
+		background: #fff;
+		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+		&.image-right {
+			flex-direction: row-reverse;
+		}
+
+		.tutorblock-preview-image {
+			flex: 0 0 45%;
+			position: relative;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+		}
+
+		.tutorblock-preview-content {
+			flex: 1;
+			padding: 2.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		@media (max-width: 768px) {
+			flex-direction: column;
+
+			.tutorblock-preview-image {
+				flex: 0 0 auto;
+				aspect-ratio: 16 / 9;
+			}
+
+			.tutorblock-preview-content {
+				padding: 1.5rem;
+			}
+		}
+	}
+
+	/* Vertical layout */
+	&.is-layout-vertical {
+		border: 1px solid #e5e7eb;
+		border-radius: 12px;
+		background: #fff;
+		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+		.tutorblock-preview-image {
+			aspect-ratio: 16 / 9;
+			overflow: hidden;
+			border-radius: 12px 12px 0 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+		}
+
+		.tutorblock-preview-content {
+			padding: 2rem;
+		}
+	}
+
+	/* Hero layout */
+	&.is-layout-hero {
+		position: relative;
+		min-height: 500px;
+		display: flex;
+		align-items: center;
+
+		.tutorblock-preview-image {
+			position: absolute;
+			inset: 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+			}
+		}
+
+		.tutorblock-preview-content {
+			position: relative;
+			z-index: 1;
+			max-width: 560px;
+			padding: 3rem;
+			color: #fff;
+
+			.tutorblock-preview-category,
+			.tutorblock-preview-instructor,
+			.tutorblock-preview-description {
+				color: rgba(255, 255, 255, 0.88);
+			}
+
+			.tutorblock-preview-title {
+				color: #fff;
+			}
+
+			.tutorblock-stat-label {
+				color: rgba(255, 255, 255, 0.7);
+			}
+
+			.tutorblock-stat-value {
+				color: #fff;
+			}
+		}
+	}
+
+	/* Cinematic layout — image fills card, gradient overlay, text overlaid */
+	&.is-layout-cinematic {
+		position: relative;
+		overflow: hidden;
+		border-radius: 16px;
+		min-height: 460px;
+		display: flex;
+		align-items: flex-end;
+
+		.tutorblock-preview-cinematic-bg {
+			position: absolute;
+			inset: 0;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			transition: transform 0.5s ease;
+
+			&--empty {
+				background-color: #111827;
+			}
+		}
+
+		&:hover .tutorblock-preview-cinematic-bg {
+			transform: scale(1.04);
+		}
+
+		.tutorblock-preview-cinematic-overlay {
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
+		}
+
+		.tutorblock-preview-cinematic-content {
+			position: relative;
+			z-index: 2;
+			padding: 2rem 2.5rem 2.5rem;
+			color: #fff;
+			width: 100%;
+
+			.tutorblock-preview-category {
+				color: rgba(255, 255, 255, 0.7) !important;
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				padding: 0.2rem 0.6rem;
+				border-radius: 100px;
+				font-size: 0.7rem;
+			}
+
+			.tutorblock-preview-title {
+				font-size: clamp(1.4rem, 3vw, 2.2rem);
+				font-weight: 800;
+				line-height: 1.15;
+				color: #fff;
+				margin-bottom: 0.75rem;
+
+				a {
+					color: inherit;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			.tutorblock-preview-description {
+				color: rgba(255, 255, 255, 0.78);
+				font-size: 0.95rem;
+				line-height: 1.5;
+				margin-bottom: 1.25rem;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+
+			.tutorblock-preview-actions {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+
+			.tutorblock-preview-price {
+				color: #fff;
+				font-size: 1.2rem;
+				font-weight: 700;
+			}
+
+			.tutorblock-enroll-btn {
+				padding: 0.75rem 1.75rem;
+				font-size: 0.95rem;
+				font-weight: 700;
+				border-radius: 4px;
+				color: #000;
+				text-decoration: none;
+				transition: transform 0.15s, box-shadow 0.15s;
+
+				&:hover {
+					transform: translateY(-2px);
+					box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	/* Content styles shared across layouts */
+	.tutorblock-preview-category {
+		display: inline-block;
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--tutorblock-primary, #2563eb);
+		margin-bottom: 0.6rem;
+	}
+
+	.tutorblock-preview-title {
+		font-size: 1.75rem;
+		font-weight: 800;
+		line-height: 1.2;
+		color: #111827;
+		margin: 0 0 0.75rem;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+
+			&:hover {
+				color: var(--tutorblock-primary, #2563eb);
+			}
+		}
+	}
+
+	.tutorblock-preview-rating {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+
+		.tutorblock-stars {
+			color: var(--tutorblock-accent, #f59e0b);
+			font-size: 1rem;
+			letter-spacing: 1px;
+		}
+
+		.tutorblock-rating-text {
+			font-size: 0.9rem;
+			color: #6b7280;
+		}
+	}
+
+	.tutorblock-preview-description {
+		font-size: 1rem;
+		color: #4b5563;
+		line-height: 1.7;
+		margin-bottom: 1.25rem;
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.tutorblock-preview-instructor {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
+		font-size: 0.9rem;
+		color: #6b7280;
+
+		img {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			object-fit: cover;
+			border: 2px solid #e5e7eb;
+		}
+
+		.tutorblock-instructor-name {
+			font-weight: 600;
+			color: #374151;
+		}
+	}
+
+	.tutorblock-preview-stats {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem;
+		margin-bottom: 1.5rem;
+		padding: 1rem 0;
+		border-top: 1px solid #f3f4f6;
+		border-bottom: 1px solid #f3f4f6;
+
+		.tutorblock-stat {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.tutorblock-stat-value {
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: #111827;
+		}
+
+		.tutorblock-stat-label {
+			font-size: 0.78rem;
+			color: #6b7280;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+		}
+	}
+
+	.tutorblock-preview-actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.tutorblock-preview-price {
+
+		.tutorblock-price-free {
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: #10b981;
+		}
+
+		.tutorblock-price-amount {
+			font-size: 1.4rem;
+			font-weight: 800;
+			color: #111827;
+		}
+
+		.tutorblock-price-original {
+			font-size: 0.95rem;
+			color: #9ca3af;
+			text-decoration: line-through;
+			margin-left: 0.5rem;
+		}
+	}
+
+	.tutorblock-enroll-btn {
+		display: inline-block;
+		padding: 0.75rem 1.75rem;
+		background: var(--tutorblock-primary, #2563eb);
+		color: #fff;
+		font-size: 1rem;
+		font-weight: 700;
+		border-radius: 8px;
+		text-decoration: none;
+		transition: opacity 0.2s, transform 0.15s;
+		border: none;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.88;
+			transform: translateY(-1px);
+			color: #fff;
+		}
+	}
+
+	/* Requirements list */
+	.tutorblock-preview-requirements {
+		margin-top: 1.25rem;
+
+		h4 {
+			font-size: 0.9rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: #374151;
+			margin: 0 0 0.5rem;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				display: flex;
+				align-items: flex-start;
+				gap: 0.5rem;
+				font-size: 0.9rem;
+				color: #6b7280;
+				margin-bottom: 0.3rem;
+
+				&::before {
+					content: "✓";
+					color: var(--tutorblock-primary, #2563eb);
+					font-weight: 700;
+					flex-shrink: 0;
+				}
+			}
+		}
+	}
+
+	/* Curriculum preview */
+	.tutorblock-preview-curriculum {
+		margin-top: 1.5rem;
+
+		h4 {
+			font-size: 0.9rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: #374151;
+			margin: 0 0 0.75rem;
+		}
+
+		.tutorblock-topic {
+			border: 1px solid #e5e7eb;
+			border-radius: 6px;
+			margin-bottom: 0.5rem;
+			overflow: hidden;
+
+			.tutorblock-topic-title {
+				padding: 0.6rem 1rem;
+				font-weight: 600;
+				font-size: 0.9rem;
+				background: #f9fafb;
+				color: #374151;
+			}
+		}
+	}
+}

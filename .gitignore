@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build artifacts (we commit build/ for distribution)
+# but exclude sourcemaps
+build/**/*.map
+
+# Editor files
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PHP dev tools
+vendor/
+composer.lock
+
+# Test coverage
+coverage/

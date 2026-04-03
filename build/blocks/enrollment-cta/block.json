@@ -1,0 +1,112 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/enrollment-cta",
+  "version": "1.0.0",
+  "title": "Course Enrollment CTA",
+  "category": "tutorblock",
+  "icon": "tickets-alt",
+  "description": "A high-converting enrollment call-to-action block featuring a course thumbnail, headline, description, pricing, and a prominent enroll button.",
+  "keywords": [
+    "tutor",
+    "lms",
+    "enroll",
+    "cta",
+    "call to action",
+    "button",
+    "conversion"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "courseId": {
+      "type": "integer",
+      "default": 0
+    },
+    "headline": {
+      "type": "string",
+      "default": "Start Learning Today"
+    },
+    "subheadline": {
+      "type": "string",
+      "default": "Join thousands of students and advance your career."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Enroll Now"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "showCourseThumbnail": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCourseTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPrice": {
+      "type": "boolean",
+      "default": true
+    },
+    "showStats": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRating": {
+      "type": "boolean",
+      "default": true
+    },
+    "showMoneyBack": {
+      "type": "boolean",
+      "default": false
+    },
+    "moneyBackText": {
+      "type": "string",
+      "default": "30-Day Money-Back Guarantee"
+    },
+    "layout": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#2563eb"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "backgroundStyle": {
+      "type": "string",
+      "default": "white",
+      "enum": [
+        "white",
+        "dark",
+        "primary",
+        "gradient",
+        "overlay"
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": false,
+      "gradients": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/enrollment-cta/index.js",
+  "editorStyle": "file:../../../build/blocks/enrollment-cta/index.css",
+  "style": "file:../../../build/blocks/enrollment-cta/style-index.css"
+}

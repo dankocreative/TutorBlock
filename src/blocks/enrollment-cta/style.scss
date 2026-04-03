@@ -1,0 +1,403 @@
+/* stylelint-disable no-descending-specificity */
+
+/* =====================================================
+   TutorBlock — Enrollment CTA — Frontend Styles
+   ===================================================== */
+
+.tutorblock-enrollment-cta {
+	overflow: hidden;
+
+	/* Horizontal (two-column) layout */
+	&.is-layout-horizontal {
+		display: flex;
+		border-radius: 16px;
+		overflow: hidden;
+
+		.tutorblock-cta-image {
+			flex: 0 0 40%;
+			position: relative;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+
+			@media (max-width: 768px) {
+				display: none;
+			}
+		}
+
+		.tutorblock-cta-content {
+			flex: 1;
+			padding: 3rem 2.5rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+
+	/* Vertical (centered) layout */
+	&.is-layout-vertical {
+		border-radius: 16px;
+		text-align: center;
+		overflow: hidden;
+
+		.tutorblock-cta-image {
+			aspect-ratio: 16 / 7;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+		}
+
+		.tutorblock-cta-content {
+			padding: 2.5rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.tutorblock-cta-actions {
+			justify-content: center;
+		}
+
+		.tutorblock-cta-stats {
+			justify-content: center;
+		}
+
+		.tutorblock-cta-rating {
+			justify-content: center;
+		}
+	}
+
+	/* Inline (compact bar) layout */
+	&.is-layout-inline {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		padding: 1.5rem 2rem;
+		border-radius: 12px;
+		flex-wrap: wrap;
+
+		.tutorblock-cta-image {
+			display: none;
+		}
+
+		.tutorblock-cta-content {
+			flex: 1;
+			min-width: 200px;
+		}
+
+		.tutorblock-cta-headline {
+			font-size: 1.25rem;
+			margin-bottom: 0.25rem;
+		}
+
+		.tutorblock-cta-subheadline {
+			display: none;
+		}
+	}
+
+	/* Background styles */
+	&.bg-white {
+		background: #fff;
+		border: 1px solid #e5e7eb;
+		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+
+		.tutorblock-cta-headline {
+			color: #111827;
+		}
+
+		.tutorblock-cta-subheadline {
+			color: #6b7280;
+		}
+	}
+
+	&.bg-dark {
+		background: #111827;
+
+		.tutorblock-cta-headline {
+			color: #fff;
+		}
+
+		.tutorblock-cta-subheadline {
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+		.tutorblock-cta-course-title {
+			color: rgba(255, 255, 255, 0.9);
+		}
+
+		.tutorblock-cta-stat-label {
+			color: rgba(255, 255, 255, 0.7);
+		}
+
+		.tutorblock-cta-stat-value {
+			color: #fff;
+		}
+	}
+
+	&.bg-primary {
+		background: var(--tutorblock-primary, #2563eb);
+
+		.tutorblock-cta-headline,
+		.tutorblock-cta-course-title,
+		.tutorblock-cta-stat-value {
+			color: #fff;
+		}
+
+		.tutorblock-cta-subheadline,
+		.tutorblock-cta-stat-label {
+			color: rgba(255, 255, 255, 0.8);
+		}
+
+		.tutorblock-cta-enroll-btn {
+			background: #fff;
+			color: var(--tutorblock-primary, #2563eb);
+		}
+	}
+
+	&.bg-gradient {
+		background: linear-gradient(135deg, var(--tutorblock-primary, #2563eb) 0%, #7c3aed 100%);
+
+		.tutorblock-cta-headline,
+		.tutorblock-cta-course-title,
+		.tutorblock-cta-stat-value {
+			color: #fff;
+		}
+
+		.tutorblock-cta-subheadline,
+		.tutorblock-cta-stat-label {
+			color: rgba(255, 255, 255, 0.8);
+		}
+
+		.tutorblock-cta-enroll-btn {
+			background: #fff;
+			color: #1d4ed8;
+		}
+	}
+
+	/* Overlay: full-bleed image, all content on top */
+	&.bg-overlay {
+		position: relative;
+		overflow: hidden;
+
+		.tutorblock-cta-image {
+			position: absolute !important;
+			inset: 0;
+			flex: none;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+
+			/* Dark gradient over image */
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.55) 50%, rgba(0, 0, 0, 0.25) 100%);
+			}
+		}
+
+		/* All content sits above the image */
+		.tutorblock-cta-content {
+			position: relative;
+			z-index: 2;
+			color: #fff;
+		}
+
+		.tutorblock-cta-headline,
+		.tutorblock-cta-course-title {
+			color: #fff;
+		}
+
+		.tutorblock-cta-course-title {
+			opacity: 0.75;
+		}
+
+		.tutorblock-cta-subheadline {
+			color: rgba(255, 255, 255, 0.82);
+		}
+
+		.tutorblock-cta-stat-value {
+			color: #fff;
+		}
+
+		.tutorblock-cta-stat-label {
+			color: rgba(255, 255, 255, 0.65);
+		}
+
+		.tutorblock-cta-rating {
+			color: rgba(255, 255, 255, 0.8);
+		}
+
+		.tutorblock-cta-money-back {
+			color: rgba(255, 255, 255, 0.7);
+			border-color: rgba(255, 255, 255, 0.3);
+		}
+
+		/* Ensure both layout variants work */
+		&.is-layout-horizontal {
+			display: flex;
+			align-items: stretch;
+
+			.tutorblock-cta-content {
+				padding: 3rem 2.5rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+		}
+
+		&.is-layout-vertical {
+			text-align: center;
+			min-height: 480px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.tutorblock-cta-content {
+				padding: 3rem 2.5rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+	}
+
+	/* Shared content styles */
+	.tutorblock-cta-course-title {
+		font-size: 0.85rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--tutorblock-primary, #2563eb);
+		margin-bottom: 0.5rem;
+	}
+
+	.tutorblock-cta-headline {
+		font-size: 2rem;
+		font-weight: 900;
+		line-height: 1.2;
+		margin: 0 0 0.75rem;
+	}
+
+	.tutorblock-cta-subheadline {
+		font-size: 1.05rem;
+		line-height: 1.65;
+		margin-bottom: 1.25rem;
+	}
+
+	.tutorblock-cta-rating {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		font-size: 0.9rem;
+		color: #6b7280;
+
+		.tutorblock-stars {
+			color: #f59e0b;
+		}
+	}
+
+	.tutorblock-cta-stats {
+		display: flex;
+		gap: 1.5rem;
+		margin-bottom: 1.5rem;
+		flex-wrap: wrap;
+
+		.tutorblock-cta-stat {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.tutorblock-cta-stat-value {
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: #111827;
+		}
+
+		.tutorblock-cta-stat-label {
+			font-size: 0.78rem;
+			color: #6b7280;
+		}
+	}
+
+	.tutorblock-cta-actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.tutorblock-cta-enroll-btn {
+		display: inline-block;
+		padding: 0.875rem 2rem;
+		background: var(--tutorblock-primary, #2563eb);
+		color: var(--tutorblock-btn-text, #fff);
+		font-size: 1rem;
+		font-weight: 700;
+		border-radius: 8px;
+		text-decoration: none;
+		transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+		border: none;
+		cursor: pointer;
+		box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+
+		&:hover {
+			opacity: 0.9;
+			transform: translateY(-2px);
+			box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+			color: var(--tutorblock-btn-text, #fff);
+		}
+	}
+
+	.tutorblock-cta-price {
+
+		.tutorblock-price-free {
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: #10b981;
+		}
+
+		.tutorblock-price-amount {
+			font-size: 1.4rem;
+			font-weight: 900;
+			color: #111827;
+		}
+
+		.tutorblock-price-original {
+			font-size: 0.95rem;
+			color: #9ca3af;
+			text-decoration: line-through;
+			margin-left: 0.5rem;
+		}
+	}
+
+	.tutorblock-cta-money-back {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.82rem;
+		color: #6b7280;
+		margin-top: 0.75rem;
+
+		&::before {
+			content: "🛡";
+			font-size: 1rem;
+		}
+	}
+}

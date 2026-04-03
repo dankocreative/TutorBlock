@@ -1,0 +1,30 @@
+/* Editor overrides for course-preview */
+.tutorblock-preview-wrapper {
+
+	.tutorblock-editor-label {
+		margin-bottom: 0.75rem;
+	}
+
+	.tutorblock-editor-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		background: #fefce8;
+		border: 1px solid #fde68a;
+		color: #92400e;
+		padding: 0.3rem 0.75rem;
+		border-radius: 20px;
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+
+	.tutorblock-editor-notice {
+		margin: 0.75rem 0 0;
+		padding: 0.75rem 1rem;
+		background: #fff7ed;
+		border: 1px solid #fed7aa;
+		border-radius: 6px;
+		color: #9a3412;
+		font-size: 0.85rem;
+	}
+}
