@@ -2,7 +2,7 @@
   "name": "tutorblock",
   "version": "1.0.0",
   "description": "Powerful Gutenberg blocks for TutorLMS",
-  "author": "Danko Creative",
+  "author": "Kevin Danko",
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",
   "scripts": {
