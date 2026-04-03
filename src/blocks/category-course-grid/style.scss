@@ -1,0 +1,92 @@
+/* =====================================================
+   TutorBlock — Category Course Grid — Frontend Styles
+   ===================================================== */
+
+.tutorblock-category-course-grid {
+	width: 100%;
+
+	.tutorblock-category-section {
+
+		&:not(:last-child) {
+			padding-bottom: var(--tutorblock-section-spacing, 48px);
+			margin-bottom: var(--tutorblock-section-spacing, 48px);
+			border-bottom: 1px solid #f3f4f6;
+		}
+	}
+
+	.tutorblock-category-header {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 1.25rem;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.tutorblock-category-title-wrap {
+
+		h3 {
+			font-size: 1.4rem;
+			font-weight: 800;
+			color: #111827;
+			margin: 0 0 0.2rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.tutorblock-cat-count {
+			font-size: 0.85rem;
+			color: #6b7280;
+			font-weight: 400;
+		}
+	}
+
+	.tutorblock-category-description {
+		font-size: 0.9rem;
+		color: #6b7280;
+		margin: 0.3rem 0 0;
+	}
+
+	.tutorblock-view-all-link {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--tutorblock-primary, #2563eb);
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		white-space: nowrap;
+		transition: opacity 0.2s;
+
+		&::after {
+			content: "→";
+		}
+
+		&:hover {
+			opacity: 0.75;
+		}
+	}
+
+	.tutorblock-category-grid {
+		display: grid;
+		gap: 1.25rem;
+
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr 1fr !important;
+		}
+
+		@media (max-width: 480px) {
+			grid-template-columns: 1fr !important;
+		}
+	}
+
+	/* Category color accent bar */
+	.tutorblock-category-accent {
+		width: 40px;
+		height: 4px;
+		border-radius: 2px;
+		background: var(--tutorblock-primary, #2563eb);
+		margin-bottom: 0.75rem;
+	}
+}

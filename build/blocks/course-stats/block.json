@@ -1,0 +1,109 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/course-stats",
+  "version": "1.0.0",
+  "title": "Course Platform Stats",
+  "category": "tutorblock",
+  "icon": "chart-bar",
+  "description": "Display key statistics about your TutorLMS platform — total courses, enrolled students, instructors, and reviews — with animated number counters.",
+  "keywords": [
+    "tutor",
+    "lms",
+    "stats",
+    "statistics",
+    "counter",
+    "numbers",
+    "students"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "showTotalCourses": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTotalStudents": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTotalInstructors": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTotalReviews": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTotalCategories": {
+      "type": "boolean",
+      "default": false
+    },
+    "labelCourses": {
+      "type": "string",
+      "default": "Courses"
+    },
+    "labelStudents": {
+      "type": "string",
+      "default": "Students Enrolled"
+    },
+    "labelInstructors": {
+      "type": "string",
+      "default": "Expert Instructors"
+    },
+    "labelReviews": {
+      "type": "string",
+      "default": "5-Star Reviews"
+    },
+    "labelCategories": {
+      "type": "string",
+      "default": "Categories"
+    },
+    "layout": {
+      "type": "string",
+      "default": "horizontal"
+    },
+    "style": {
+      "type": "string",
+      "default": "default"
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#2563eb"
+    },
+    "secondaryColor": {
+      "type": "string",
+      "default": "#7c3aed"
+    },
+    "animated": {
+      "type": "boolean",
+      "default": true
+    },
+    "showIcons": {
+      "type": "boolean",
+      "default": true
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "emoji"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": false,
+      "gradients": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/course-stats/index.js",
+  "editorStyle": "file:../../../build/blocks/course-stats/index.css",
+  "style": "file:../../../build/blocks/course-stats/style-index.css"
+}
