@@ -80,7 +80,14 @@
     },
     "backgroundStyle": {
       "type": "string",
-      "default": "white"
+      "default": "white",
+      "enum": [
+        "white",
+        "dark",
+        "primary",
+        "gradient",
+        "overlay"
+      ]
     }
   },
   "supports": {

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/video-preview",
+  "version": "1.0.0",
+  "title": "Video Preview",
+  "category": "tutorblock",
+  "icon": "video-alt3",
+  "description": "Display a video preview thumbnail with a play button overlay. Supports YouTube, Vimeo, and self-hosted video. Optionally link a TutorLMS course and overlay a sign-up button.",
+  "keywords": [
+    "video",
+    "preview",
+    "trailer",
+    "youtube",
+    "vimeo",
+    "play",
+    "tutor",
+    "lms",
+    "course"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "videoUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "thumbnailUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "thumbnailId": {
+      "type": "integer",
+      "default": 0
+    },
+    "courseId": {
+      "type": "integer",
+      "default": 0
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "showOverlayButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "overlayButtonText": {
+      "type": "string",
+      "default": "Sign Up Free"
+    },
+    "overlayButtonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "overlayButtonColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "overlayButtonTextColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "showPlayButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "playButtonColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "aspectRatio": {
+      "type": "string",
+      "default": "16/9"
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "overlayOpacity": {
+      "type": "integer",
+      "default": 30
+    },
+    "captionPosition": {
+      "type": "string",
+      "default": "below"
+    },
+    "borderRadius": {
+      "type": "integer",
+      "default": 12
+    },
+    "autoplayOnClick": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": false,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/video-preview/index.js",
+  "editorStyle": "file:../../../build/blocks/video-preview/index.css",
+  "style": "file:../../../build/blocks/video-preview/style-index.css"
+}

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function tutorblock_render_course_preview( array $attributes, string $content = '' ): string {
 	$course_id      = max( 0, (int) ( $attributes['courseId'] ?? 0 ) );
-	$layout         = in_array( $attributes['layout'] ?? 'horizontal', array( 'horizontal', 'vertical', 'hero' ), true )
+	$layout         = in_array( $attributes['layout'] ?? 'horizontal', array( 'horizontal', 'vertical', 'hero', 'cinematic' ), true )
 		? $attributes['layout'] : 'horizontal';
 	$img_position   = in_array( $attributes['imagePosition'] ?? 'left', array( 'left', 'right' ), true )
 		? $attributes['imagePosition'] : 'left';
@@ -190,6 +190,51 @@ function tutorblock_render_course_preview( array $attributes, string $content = 
 	}
 
 	$color_style = tutorblock_color_style( $primary_color, $accent_color );
+
+	// ── Cinematic layout: image fills card, text+button overlaid ──────────────
+	if ( 'cinematic' === $layout ) {
+		ob_start();
+		?>
+		<div class="tutorblock-course-preview is-layout-cinematic"
+			style="<?php echo esc_attr( $color_style ); ?>">
+
+			<?php if ( $thumbnail_url ) : ?>
+				<div class="tutorblock-preview-cinematic-bg"
+					style="background-image:url(<?php echo esc_url( $thumbnail_url ); ?>);"
+					role="img"
+					aria-label="<?php echo esc_attr( $title ); ?>">
+				</div>
+			<?php else : ?>
+				<div class="tutorblock-preview-cinematic-bg tutorblock-preview-cinematic-bg--empty"></div>
+			<?php endif; ?>
+
+			<div class="tutorblock-preview-cinematic-overlay"></div>
+
+			<div class="tutorblock-preview-cinematic-content">
+				<?php if ( $cat_name ) : ?>
+					<div class="tutorblock-preview-category"><?php echo esc_html( $cat_name ); ?></div>
+				<?php endif; ?>
+
+				<h2 class="tutorblock-preview-title">
+					<a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
+				</h2>
+
+				<?php echo $rating_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+
+				<?php if ( $description ) : ?>
+					<p class="tutorblock-preview-description"><?php echo esc_html( $description ); ?></p>
+				<?php endif; ?>
+
+				<div class="tutorblock-preview-actions">
+					<div class="tutorblock-preview-price"><?php echo $price_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+					<?php echo $enroll_btn; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</div>
+			</div>
+
+		</div>
+		<?php
+		return ob_get_clean();
+	}
 
 	ob_start();
 	?>

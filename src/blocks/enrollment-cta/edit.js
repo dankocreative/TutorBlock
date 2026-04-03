@@ -206,6 +206,13 @@ export default function Edit( { attributes, setAttributes } ) {
 								label: __( 'Gradient', 'tutorblock' ),
 								value: 'gradient',
 							},
+							{
+								label: __(
+									'Image Overlay (cinematic)',
+									'tutorblock'
+								),
+								value: 'overlay',
+							},
 						] }
 						onChange={ ( val ) =>
 							setAttributes( { backgroundStyle: val } )

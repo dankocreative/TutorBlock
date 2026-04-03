@@ -23,7 +23,8 @@
     },
     "layout": {
       "type": "string",
-      "default": "horizontal"
+      "default": "horizontal",
+      "enum": ["horizontal", "vertical", "hero", "cinematic"]
     },
     "showDescription": {
       "type": "boolean",

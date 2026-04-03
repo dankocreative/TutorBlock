@@ -11,6 +11,8 @@ module.exports = {
 		'blocks/instructor-profile/index':    path.resolve( __dirname, 'src/blocks/instructor-profile/index.js' ),
 		'blocks/course-stats/index':          path.resolve( __dirname, 'src/blocks/course-stats/index.js' ),
 		'blocks/enrollment-cta/index':        path.resolve( __dirname, 'src/blocks/enrollment-cta/index.js' ),
+		'blocks/hero-banner/index':           path.resolve( __dirname, 'src/blocks/hero-banner/index.js' ),
+		'blocks/video-preview/index':         path.resolve( __dirname, 'src/blocks/video-preview/index.js' ),
 	},
 	output: {
 		...defaultConfig.output,

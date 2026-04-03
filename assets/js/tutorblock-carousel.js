@@ -308,12 +308,195 @@
 		};
 	}
 
+	/* ===== VIDEO LIGHTBOX ===== */
+
+	/**
+	 * Initialise video lightboxes for hero-banner and video-preview blocks.
+	 *
+	 * Handles:
+	 *  - [data-tb-video-trigger] — video-preview play button (opens modal)
+	 *  - [data-tb-video]         — hero-banner secondary "Watch" button (opens modal)
+	 */
+	function initVideoLightbox() {
+
+		/* ── video-preview: click on media area ── */
+		document.querySelectorAll( '[data-tb-video-trigger]' ).forEach( function ( el ) {
+			if ( el.dataset.tbVideoInit ) {
+				return;
+			}
+			el.dataset.tbVideoInit = '1';
+
+			var modal = el.closest( '.tutorblock-video-preview' )
+				? el.closest( '.tutorblock-video-preview' ).querySelector( '.tutorblock-video-modal' )
+				: null;
+
+			if ( ! modal ) {
+				return;
+			}
+
+			function openModal( e ) {
+				// Don't fire if user clicked the overlay button (sign-up CTA).
+				if ( e && e.target && e.target.closest( '.tutorblock-video-preview__overlay-btn' ) ) {
+					return;
+				}
+				buildAndShowModal( modal );
+			}
+
+			el.addEventListener( 'click', openModal );
+			el.addEventListener( 'keydown', function ( e ) {
+				if ( e.key === 'Enter' || e.key === ' ' ) {
+					e.preventDefault();
+					openModal( e );
+				}
+			} );
+		} );
+
+		/* ── hero-banner: secondary "Watch Preview" button ── */
+		document.querySelectorAll( '[data-tb-video]' ).forEach( function ( el ) {
+			if ( el.dataset.tbVideoInit ) {
+				return;
+			}
+			el.dataset.tbVideoInit = '1';
+
+			var modal = el.closest( '.tutorblock-hero-banner' )
+				? el.closest( '.tutorblock-hero-banner' ).querySelector( '.tutorblock-video-modal' )
+				: null;
+
+			if ( ! modal ) {
+				return;
+			}
+
+			el.addEventListener( 'click', function ( e ) {
+				e.preventDefault();
+				// Override embed URL from the button's data attribute.
+				var videoUrl = el.dataset.tbVideo;
+				var embedEl = modal.querySelector( '.tutorblock-video-modal__embed' );
+				if ( embedEl && videoUrl ) {
+					embedEl.dataset.tbEmbedUrl = getEmbedUrl( videoUrl );
+					embedEl.dataset.tbDirect   = isDirectVideo( videoUrl ) ? '1' : '0';
+				}
+				buildAndShowModal( modal );
+			} );
+		} );
+
+		/* ── shared close / backdrop logic ── */
+		document.addEventListener( 'click', function ( e ) {
+			if ( e.target.classList.contains( 'tutorblock-video-modal' ) ||
+				e.target.classList.contains( 'tutorblock-video-modal__close' ) ) {
+				closeModal( e.target.closest( '.tutorblock-video-modal' ) ||
+					e.target.parentElement.closest( '.tutorblock-video-modal' ) );
+			}
+		} );
+
+		document.addEventListener( 'keydown', function ( e ) {
+			if ( e.key === 'Escape' ) {
+				document.querySelectorAll( '.tutorblock-video-modal.is-open' ).forEach( closeModal );
+			}
+		} );
+	}
+
+	/**
+	 * Build embed content inside modal and open it.
+	 *
+	 * @param {HTMLElement} modal
+	 */
+	function buildAndShowModal( modal ) {
+		var embedEl  = modal.querySelector( '.tutorblock-video-modal__embed' );
+		var embedUrl = embedEl ? embedEl.dataset.tbEmbedUrl : '';
+		var isDirect = embedEl ? embedEl.dataset.tbDirect === '1' : false;
+
+		if ( ! embedUrl || ! embedEl ) {
+			return;
+		}
+
+		// Build the embed HTML.
+		var html;
+		if ( isDirect ) {
+			html = '<video src="' + escAttr( embedUrl ) + '" controls autoplay style="width:100%;aspect-ratio:16/9;border-radius:4px;"></video>';
+		} else {
+			html = '<iframe src="' + escAttr( embedUrl ) + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;border-radius:4px;" title="Video preview"></iframe>';
+		}
+
+		embedEl.innerHTML = html;
+		modal.classList.add( 'is-open' );
+		document.body.style.overflow = 'hidden';
+
+		// Focus the close button for accessibility.
+		var closeBtn = modal.querySelector( '.tutorblock-video-modal__close' );
+		if ( closeBtn ) {
+			closeBtn.focus();
+		}
+	}
+
+	/**
+	 * Close a video modal and destroy embed to stop playback.
+	 *
+	 * @param {HTMLElement} modal
+	 */
+	function closeModal( modal ) {
+		if ( ! modal ) {
+			return;
+		}
+		modal.classList.remove( 'is-open' );
+		document.body.style.overflow = '';
+
+		// Destroy the embed to stop video playback.
+		var embedEl = modal.querySelector( '.tutorblock-video-modal__embed' );
+		if ( embedEl ) {
+			embedEl.innerHTML = '';
+		}
+	}
+
+	/**
+	 * Convert a video URL to an embeddable URL with autoplay.
+	 *
+	 * @param  {string} url
+	 * @return {string}
+	 */
+	function getEmbedUrl( url ) {
+		var ytMatch = url.match( /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/ );
+		if ( ytMatch ) {
+			return 'https://www.youtube.com/embed/' + ytMatch[ 1 ] + '?autoplay=1&rel=0&modestbranding=1';
+		}
+		var vimeoMatch = url.match( /vimeo\.com\/(\d+)/ );
+		if ( vimeoMatch ) {
+			return 'https://player.vimeo.com/video/' + vimeoMatch[ 1 ] + '?autoplay=1';
+		}
+		return url; // Direct video.
+	}
+
+	/**
+	 * Detect direct video file URLs.
+	 *
+	 * @param  {string} url
+	 * @return {boolean}
+	 */
+	function isDirectVideo( url ) {
+		return /\.(mp4|webm|ogg)(\?.*)?$/i.test( url );
+	}
+
+	/**
+	 * Escape a string for use in an HTML attribute.
+	 *
+	 * @param  {string} str
+	 * @return {string}
+	 */
+	function escAttr( str ) {
+		return str
+			.replace( /&/g, '&amp;' )
+			.replace( /"/g, '&quot;' )
+			.replace( /'/g, '&#39;' )
+			.replace( /</g, '&lt;' )
+			.replace( />/g, '&gt;' );
+	}
+
 	/* ===== INIT ===== */
 
 	function init() {
 		initCarousels();
 		initCounters();
 		initCategoryFilters();
+		initVideoLightbox();
 	}
 
 	if ( document.readyState === 'loading' ) {

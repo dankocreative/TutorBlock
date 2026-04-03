@@ -87,6 +87,8 @@ function tutorblock_register_blocks() {
 		'instructor-profile'   => 'tutorblock_render_instructor_profile',
 		'course-stats'         => 'tutorblock_render_course_stats',
 		'enrollment-cta'       => 'tutorblock_render_enrollment_cta',
+		'hero-banner'          => 'tutorblock_render_hero_banner',
+		'video-preview'        => 'tutorblock_render_video_preview',
 	);
 
 	foreach ( $blocks as $block => $callback ) {
@@ -159,6 +161,8 @@ require_once TUTORBLOCK_PLUGIN_DIR . 'includes/render/category-course-grid.php';
 require_once TUTORBLOCK_PLUGIN_DIR . 'includes/render/instructor-profile.php';
 require_once TUTORBLOCK_PLUGIN_DIR . 'includes/render/course-stats.php';
 require_once TUTORBLOCK_PLUGIN_DIR . 'includes/render/enrollment-cta.php';
+require_once TUTORBLOCK_PLUGIN_DIR . 'includes/render/hero-banner.php';
+require_once TUTORBLOCK_PLUGIN_DIR . 'includes/render/video-preview.php';
 
 // Load REST API endpoints for editor data.
 require_once TUTORBLOCK_PLUGIN_DIR . 'includes/admin/rest-api.php';

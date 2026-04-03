@@ -36,7 +36,7 @@ function tutorblock_render_enrollment_cta( array $attributes, string $content = 
 		? $attributes['layout'] : 'horizontal';
 	$primary_color   = sanitize_hex_color( $attributes['primaryColor'] ?? '#2563eb' ) ?: '#2563eb';
 	$btn_text_color  = sanitize_hex_color( $attributes['buttonTextColor'] ?? '#ffffff' ) ?: '#ffffff';
-	$bg_style        = in_array( $attributes['backgroundStyle'] ?? 'white', array( 'white', 'dark', 'primary', 'gradient' ), true )
+	$bg_style        = in_array( $attributes['backgroundStyle'] ?? 'white', array( 'white', 'dark', 'primary', 'gradient', 'overlay' ), true )
 		? $attributes['backgroundStyle'] : 'white';
 
 	// Resolve course data.

@@ -79,6 +79,13 @@ export default function Edit( { attributes, setAttributes } ) {
 								),
 								value: 'hero',
 							},
+							{
+								label: __(
+									'Cinematic (image + button overlay)',
+									'tutorblock'
+								),
+								value: 'cinematic',
+							},
 						] }
 						onChange={ ( val ) => setAttributes( { layout: val } ) }
 					/>

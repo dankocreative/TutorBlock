@@ -1,0 +1,130 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tutorblock/hero-banner",
+  "version": "1.0.0",
+  "title": "Hero Banner",
+  "category": "tutorblock",
+  "icon": "format-image",
+  "description": "Full-bleed cinematic hero section with a background image or video, dark overlay, bold headline, and an overlaid sign-up / CTA button.",
+  "keywords": [
+    "hero",
+    "banner",
+    "cta",
+    "full width",
+    "video",
+    "sign up",
+    "overlay",
+    "tutor",
+    "lms"
+  ],
+  "textdomain": "tutorblock",
+  "attributes": {
+    "backgroundImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundImageId": {
+      "type": "integer",
+      "default": 0
+    },
+    "videoUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "videoType": {
+      "type": "string",
+      "default": "none"
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "overlayOpacity": {
+      "type": "integer",
+      "default": 50
+    },
+    "headline": {
+      "type": "string",
+      "default": "Transform Your Knowledge"
+    },
+    "subheadline": {
+      "type": "string",
+      "default": "Join thousands of learners on a journey to mastery."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Enroll Now — Free"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "showSecondaryButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "secondaryButtonText": {
+      "type": "string",
+      "default": "Watch Preview"
+    },
+    "secondaryButtonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "textAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "minHeight": {
+      "type": "integer",
+      "default": 600
+    },
+    "contentWidth": {
+      "type": "string",
+      "default": "medium"
+    },
+    "courseId": {
+      "type": "integer",
+      "default": 0
+    },
+    "showCourseStats": {
+      "type": "boolean",
+      "default": false
+    },
+    "tagline": {
+      "type": "string",
+      "default": ""
+    },
+    "gradientDirection": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": false,
+      "margin": true
+    }
+  },
+  "editorScript": "file:../../../build/blocks/hero-banner/index.js",
+  "editorStyle": "file:../../../build/blocks/hero-banner/index.css",
+  "style": "file:../../../build/blocks/hero-banner/style-index.css"
+}
